@@ -103,8 +103,15 @@ public final class Settings {
         return translateAlternateColorCodes('&', plugin.getConfig().getString("newbie-message"));
     }
 
-    public String getJoinMessage() {
-        return translateAlternateColorCodes('&', plugin.getConfig().getString("join-message"));
+    public String getJoinMessage(Player player) {
+        String joinMessage = "";
+        for (String key : plugin.getConfig().getConfigurationSection("join-messages").getKeys(false)) {
+            if (!player.hasPermission("hub.joinmessages." + key)) {
+                continue;
+            }
+            joinMessage = plugin.getConfig().getString("join-messages." + key);
+        }
+        return joinMessage == null ? "" : translateAlternateColorCodes('&', joinMessage);
     }
 
     public String getQuitMessage() {
