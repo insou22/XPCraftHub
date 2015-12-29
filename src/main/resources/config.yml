@@ -44,7 +44,11 @@ disable-placing: true
 newbie-message: '&bWelcome our newest member, &3&l{PLAYER} &bto the server!'
 
 # Custom join message can be specified here. Set this to '' to display nothing.
-join-message: '&b[+] &3{PLAYER} has joined the game.'
+# join-message: '&b[+] &3{PLAYER} has joined the game.'
+join-messages:
+  default: '&b[+] &3{PLAYER} has joined the game.'
+  admin: '&b[+] &c{PLAYER} - Admin - has joined the game.'
+  op: '&b[+] &c&k:&r &a&l{PLAYER} &a- OP - has joined the game.'
 
 # Custom quit message can be specified here. Set this to '' to display nothing.
 quit-message: '&b[-] &3{PLAYER} has quit the game.'
